@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Semangat Ya!</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+    .card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 340px;
+      animation: float 4s ease-in-out infinite;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 18px;
+      background-color: #4caf50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    button:hover {
+      transform: scale(1.05);
+      background-color: #388e3c;
+    }
+    #motivasi {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #333;
+      opacity: 1;
+      transition: opacity 0.8s ease;
+    }
+    blockquote {
+      font-style: italic;
+      color: #555;
+      margin: 20px 0;
+    }
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+    .delay-1 {
+      animation-delay: 0.5s;
+    }
+    .delay-2 {
+      animation-delay: 1s;
+    }
+    .delay-3 {
+      animation-delay: 1.5s;
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 class="fade-in">Hai, Temanku! 😊</h1>
+    <p class="fade-in delay-1">Kamu hebat dan kuat! Jangan menyerah, ya 💪</p>
+    <blockquote class="fade-in delay-2">"Tuhan tahu, kamu telah berusaha."</blockquote>
+    <button onclick="tampilkanMotivasi()">Klik untuk Semangat Lagi!</button>
+    <p id="motivasi" class="fade-in delay-3"></p>
+  </div>
+
+  <script>
+    const motivasi = [
+      "Tetap semangat! Hari yang cerah menunggumu 🌞",
+      "Kamu tidak sendiri. Kamu kuat 💖",
+      "Setiap usaha pasti ada hasilnya. Terus maju! 🚀",
+      "Istirahat boleh, menyerah jangan! 💪",
+      "Langit tak selalu cerah, tapi kamu tetap bersinar ✨",
+      "Tuhan tahu, kamu telah berusaha 🤍"
+    ];
+
+    function tampilkanMotivasi() {
+      const randomIndex = Math.floor(Math.random() * motivasi.length);
+      const pesan = motivasi[randomIndex];
+      const elem = document.getElementById("motivasi");
+      elem.style.opacity = 0;
+      setTimeout(() => {
+        elem.textContent = pesan;
+        elem.style.opacity = 1;
+      }, 300);
+    }
+
+    // Animasi masuk awal
+    window.onload = () => {
+      document.querySelectorAll('.fade-in').forEach(el => {
+        el.style.opacity = 1;
+      });
+    };
+  </script>
+</body>
+</html>
